@@ -4,7 +4,7 @@ body, html {
   height: 100%;
   font-family:Roboto, Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
   font-weight: 400;
-font-size: 14px;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   background: var(--bg-color);
@@ -13,13 +13,24 @@ font-size: 14px;
 a{
   color:var(--color-button-default);
 }
+
+
 h1, h2{
   font-weight: normal;
   text-align: center;
+
+  font-family:
+    'Quicksand',
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
 }
-.ml15{
-  margin-left: 15px;
-}
+
 .pull-right{
   float: right;
 }
@@ -29,18 +40,7 @@ h1, h2{
 .align-right{
   text-align: right;
 }
-a{
-  color:var(--basecolor);
-}
-.el-main{
-  text-align: center;
-  width:100%;
-  margin: 0 auto;
-  background: var( --bg-color);
-}
-.el-main .el-card{
-  margin: 0 auto;
-}
+
 .page-enter-active, .page-leave-active{
   transition: opacity 1s;
 }
@@ -49,130 +49,11 @@ a{
   opacity: 0;
 
 }
-.smallMarginBottom{
-  margin-bottom: 10px;
+.el-button{
+  margin: 15px 0 ;
 }
-
-.el-button.el-button--primary, .el-button.el-button--default{
-  background: var( --color-button-default);
-  border-color:var( --color-button-default);
-  color:var(--color-base-text-aside);
-}
-.el-button.el-button--default:hover, .el-button.el-button--primary:hover, .el-button:hover{
-  background: var( --color-button-hover);
-  border-color:var( --color-button-hover);
-  color:var(--color-active-text-aside);
-}
-.el-button.el-button--default:active, .el-button.el-button--primary:active, .el-button:active,
-.el-button.el-button--default.active, .el-button.el-button--primary.active, .el-button.active
-{
-  background: var( --color-button-click);
-  border-color:var( --color-button-click);
-  color:var(--color-active-text-aside);
-}
-.el-button.el-button--primary.disabled, .el-button.el-button--default.disabled, .el-button.disabled{
-  background: var( --color-button-not-active);
-  border-color:var( --color-button-not-active);
-  color: var(--color-base-text-aside);
-}
-
-.el-input__inner {
-  border: none;
-  border-radius:5px;
-}
-input{
-  color: var(--color-inversion);
-}
-.el-range-separator{
-  color:var(--color-active-text-aside);
-}
-.el-input__inner {
-  background:var(--bg-input);
-  color: var(--color-inversion);
-}
-.el-scrollbar__view.el-select-dropdown__list{
-  background:var(--bg-input);
-}
-.el-select-dropdown__item{
-  color:var(--color-text-primary);
-}
-.el-select-dropdown__item.hover, .el-select-dropdown__item:hover{
-  background:var(--basecolor-aside)!important;
-  color:var( --color-active-text-aside);
-}
-
-.nameChart{
-  font-size: 16px;
-  font-weight: normal;
-  text-align: left;
-  padding-left: 15px;
-}
-.el-checkbox__input .el-checkbox__inner {
-  display: block;
-  height: 20px;
-  width: 20px;
-  background-color: var(--color-bg-input);
-}
-
-.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-  background-color: var(--color-button-default);
-  border: none;
-}
-
-.el-checkbox__input.is-checked .el-checkbox__inner::after {
-  height: 14px;
-  margin-left: 5px;
-  font-weight: 400;
-}
-.el-checkbox__label, .el-checkbox__input.is-checked+.el-checkbox__label {
-  font-size: 14px;
-  line-height: 16px;
-  font-style: normal;
-  font-weight: 400;
-  color: var(--color-button-default);
-}
-.el-date-editor .el-range__icon{
-  color:var( --color-button-default);
-}
-
-.dateInfo{
-  color:var(--green);
-  margin-top: 12px;
-  span {
-    font-size: 105%;
-    color:var(--color-button-default);
-  }
-}
-el-input::placeholder {
-  color:var(--color-button-not-active);
-}
-.el-button--success{
-  background-color: var(--green);
-  border-color: var(--green);
-}
-.el-button--success:hover {
-  color: #FFF;
-  background-color: var(--color-button-success-hover);
-  border-color: var(--color-button-success-hover);
-}
-
-.el-icon-loading{
-  margin-top: 15%;
-  font-size: 70px;
-  color:var( --color-button-default);
-}
-
-.blockButtonZoom{
-  text-align: right;
-  padding: 8px 8px 0 0;
-}
-.el-icon-zoom-in{
-  color: var(--color-button-default);
-  font-size: 20px;
+.icon{
+  font-size: 18px;
   cursor: pointer;
-}
-.miniCharts .nameChart{
-  padding-left: 5px;
-  margin-top: 0;
-  font-size: 14px;
+  padding: 10px;
 }

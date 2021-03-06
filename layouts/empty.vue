@@ -1,13 +1,21 @@
 <template>
   <div class="empty-layout">
-    <Nuxt/>
+    <el-header>
+      <Header/>
+    </el-header>
+    <el-main>
+      <Nuxt/>
+    </el-main>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
 export default {
   name: "empty",
-
+  components:{
+    Header
+  },
   computed:{
     error() {
       return this.$store.getters.error
@@ -23,22 +31,9 @@ export default {
 
 <style lang="scss" scoped>
 .empty-layout{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 80px 0;
-  background: #e5e5e5;
+  background:var(--bg-color);
+  width: 80%;
+  margin: 0 auto;
+}
 
-}
-.dark_theme{
-  .empty-layout{
-    background-image: url("../static/img/bg-empty-dark.svg");
-  }
-}
-.light_theme{
-  .empty-layout{
-    background-image: url("../static/img/bg-empty.svg");
-  }
-}
 </style>

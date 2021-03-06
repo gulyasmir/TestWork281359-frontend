@@ -5,7 +5,7 @@ export const state = () =>({
 export const actions ={
   nuxtServerInit({dispatch}){
  //   console.log('server init')
-    dispatch('auth/autoLogin')
+   // dispatch('auth/autoLogin')
   }
 }
 export const mutations = {

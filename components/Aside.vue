@@ -1,34 +1,20 @@
 <template>
   <el-row>
     <el-col>
-
-<el-menu
+      <el-menu
   router
   default-active="2"
          class="el-menu-vertical-demo"
          :collapse="isCollapse">
 
   <el-menu-item index="/start">
-    <img class="logo_aside" :src="logourl" alt="">
+    Панель управления
   </el-menu-item>
 
-  <el-menu-item index="/start">
-    <i class="el-icon-location"></i>
-    <span slot="title">
-    <el-select v-model="value"  @change="changeSelectFilial" placeholder="Выбор филиала">
-      <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value">
-      </el-option>
-   </el-select>
-   </span>
-  </el-menu-item>
 
-  <el-menu-item index="/start" >
+  <el-menu-item index="/clients" >
     <i class="el-icon-s-data"></i>
-    <span slot="title">Статистика</span>
+    <span slot="title">Смотреть всех пользователей</span>
   </el-menu-item>
 
   <el-menu-item index="/setting">
@@ -53,65 +39,15 @@
 
 <script>
 
-import Cookies from "js-cookie";
 
 export default {
   name: "Aside",
-  methods: {
-    changeSelectFilial(id) {
-      if (id === '2fa15055-d0f7-ea11-a2dc-005056844c9d'){
-        this.$router.push(`/filial/achinsk`)
-      } else {
-        this.$router.push(`/customFilial/${id}`)
-      }
-    }
-  },
 
   data() {
     return {
-      logourl:require('@/static/img/logo-white.svg'),
-      isCollapse: true,
-      options: [{
-        value: 'a458b9e8-b16b-e411-9304-00059a3c7a00',
-        label: 'Конаковский филиал АО "Дитсманн"'
-      }, {
-        value: 'dd63b1fd-b16b-e411-9304-00059a3c7a00',
-        label: 'Рефтинский филиал АО "Дитсманн"'
-      }, {
-        value: 'd692de28-b26b-e411-9304-00059a3c7a00',
-        label: 'Невинномысский филиал АО "Дитсманн"'
-      },{
-        value: '8d9924c9-b26b-e411-9304-00059a3c7a00',
-      label: 'Среднеуральский филиал АО "Дитсманн"'
-    }, {
-      value: '8f75602d-b46b-e411-9304-00059a3c7a00',
-        label: 'АО "Дитсманн"'
-    }, {
-      value: '2e5fc2c0-5628-e911-a2bf-005056844c9d',
-        label: 'АО "Дитсманн" обособленное подразделение в г. Екатеринбурге'
-    },{
-        value: '2fa15055-d0f7-ea11-a2dc-005056844c9d',
-        label: 'Ачинский филиал АО "Дитсманн"'
-      }],
-
-      value: ''
-    };
-  },
-  watch: {
-    $route(to, from) {
-      //console.log('Aside to = ', to)
-      if (to.name === 'add-chart') {
-        console.log('Aside to = ', to.name)
-        this.value = Cookies.get('CompanyId')
-      } else {
-        this.value  = to.params.id
-        if (to.params.id ==='achinsk'){
-          this.value = 'Ачинский филиал АО Дитсманн'
-        }
-      }
+      isCollapse: true
     }
   }
-
 }
 </script>
 
@@ -121,10 +57,7 @@ export default {
   min-height: 100vh;
   background: var(--basecolor-aside);
 }
-.logo_aside {
-  height: 50px;
 
-}
 .el-menu {
   min-width: 65px;
 }
@@ -136,7 +69,6 @@ export default {
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 290px;
-
 }
 .el-radio-button.is-active{
   display: none;

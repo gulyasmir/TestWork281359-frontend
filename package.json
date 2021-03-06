@@ -1,0 +1,25 @@
+{
+  "name": "directoryfront",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/pwa": "^3.2.2",
+    "element-ui": "^2.13.2",
+    "js-cookie": "^2.2.1",
+    "jwt-decode": "^2.2.0",
+    "nuxt": "^2.14.0"
+  },
+  "devDependencies": {
+    "@nuxt/components": "^0.1.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3",
+    "webpack-bundle-analyzer": "^3.9.0"
+  }
+}
