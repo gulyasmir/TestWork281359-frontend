@@ -1,7 +1,7 @@
 export const actions = {
   async getListClients(){
     try {
-     const url=`http://directory.gulyasmir.ru/public/api/client`
+     const url=`https://directory.gulyasmir.ru/public/api/client`
     //  const url=`http://directory/api/client`
       let resultdata = await this.$axios.get(url)
      // console.log('getClients result', resultdata)
