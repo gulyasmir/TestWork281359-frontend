@@ -25,7 +25,7 @@ export const actions = {
     try {
       const url=`https://directory.gulyasmir.ru/public/api/login?email=${payload.email}&password=${payload.password}`
       // const url=`http://directory/api/client`
-      const resultdata = await this.$axios.post(url, payload)
+      const resultdata = await this.$axios.post(url)
       console.log('login result', resultdata)
 
 

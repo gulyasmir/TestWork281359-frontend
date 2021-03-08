@@ -1,13 +1,13 @@
 export default function ({$axios, redirect, store}){
- // $axios.interceptors.request.use(request =>{
-
-  /*  if (store.getters['auth/isAuthenticated'] && !request.headers.common.Authorization){
+  $axios.interceptors.request.use(request =>{
+    console.log('interceptor 1', request.headers)
+    if (store.getters['auth/isAuthenticated'] && !request.headers.common.Authorization){
       const token = store.getters['auth/token']
       request.headers.common.Authorization = `toke ${token}`
     }
-  */  //  console.log('interceptor', request.headers)
- //   return request
- // })
+      console.log('interceptor 2', request.headers)
+    return request
+  })
 
   $axios.onError(error =>{
     if (error.response){
