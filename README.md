@@ -1,5 +1,5 @@
 
-# directoryfront
+# directoryFront
 
 This project deploy in heroku  https://directoryfront.herokuapp.com/
 
