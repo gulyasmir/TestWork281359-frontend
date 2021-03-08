@@ -10,49 +10,34 @@ export const state = () =>({
 export const mutations = {
   setToken(state, token) {
     state.token = token
-    // console.log('state.token', state.token)
+     console.log('state.token', state.token)
   },
   clearToken(state) {
     state.token = null
-  },
-  setUserId(state, userid) {
-    state.userid = userid
   }
 }
 
 export const actions = {
-  async login({commit},payload){
+  async login({commit, dispatch}, payload) {
     try {
       const url=`https://directory.gulyasmir.ru/public/api/login?email=${payload.email}&password=${payload.password}`
-      // const url=`http://directory/api/client`
       const resultdata = await this.$axios.post(url)
-      console.log('login result', resultdata)
-
-
-     // const token = loginReport.access_token
-    //  if (loginReport.success) {
-    //    dispatch('setToken', token)
-     //   dispatch('setUserId', loginReport.userid)
-
-     //   return true
-    //  }
-   //   return false
-
-
-      return resultdata
+      console.log('login result', resultdata.data)
+      const token = resultdata.data.token
+      if (resultdata.data.success) {
+        dispatch('setToken', token)
+        return true
+     }
+      return false
     } catch(e){
       console.log('login error')
       throw  e
     }
   },
   setToken({commit}, token){
-    this.$axios.setToken(token, 'toke')
+    this.$axios.setToken(token, 'token')
     commit('setToken', token)
     Cookies.set('jwt-token', token)
-  },
-  setUserId({commit}, userId){
-    commit('setUserId', userId)
-    Cookies.set('userId', userId)
   },
 
   logout({commit}){
@@ -83,17 +68,16 @@ export const actions = {
     }
   }
 }
+
 export const getters = {
   isAuthenticated: state => Boolean(state.token),
   token: state => state.token
 }
 
 function isJWTValid(token){
-
   if(!token) {
     return false
   }
-
   if(token==='null') {
     return false
   }

@@ -3,10 +3,10 @@ export const actions = {
     try {
       const url=`http://directory/api/client?fio=${payload.fio}&email=${payload.email}&phone=${payload.phone}}`
       const resultdata = await this.$axios.post(url)
-      console.log('getClients result', resultdata)
+      console.log('create result', resultdata)
       return resultdata
     } catch(e){
-      console.log('getClients error')
+      console.log('create error')
       throw  e
     }
   }

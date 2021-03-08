@@ -5,7 +5,7 @@ export const state = () =>({
 export const actions ={
   nuxtServerInit({dispatch}){
  //   console.log('server init')
-   // dispatch('auth/autoLogin')
+    dispatch('auth/autoLogin')
   }
 }
 export const mutations = {
@@ -14,19 +14,10 @@ export const mutations = {
   },
   clearError(state)  {
     state.error = null
-  },
-  setToken(state, token) {
-    state.token = token
-  },
-  clearToken(state)  {
-    state.token = null
   }
 }
 
 export const getters = {
   error:state =>state.error,
-  isAuth:state => !!state.token,
-  today: state => state.today
-
 }
 

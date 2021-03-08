@@ -3,6 +3,7 @@
     <h1>Список клиентов</h1>
 
     <el-button
+      v-if="this.isSetToken"
       type="primary"
       @click="handleClickCreate"
     >
@@ -10,6 +11,7 @@
     </el-button>
     <TableComponent
       :tableData="this.clientsList.data"
+      :isSetToken="this.isSetToken"
     />
 
   </div>
@@ -17,6 +19,7 @@
 
 <script>
 import TableComponent from '@/components/TableComponent'
+
 export default {
   layout:'empty',
   comments:{
@@ -29,6 +32,11 @@ export default {
   },
   mounted(){
     this.getClientslist()
+  },
+  computed: {
+    isSetToken(){
+      return  this.$store.getters['auth/isAuthenticated']
+    }
   },
   methods:{
     async getClientslist() {

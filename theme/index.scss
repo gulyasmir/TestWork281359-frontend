@@ -18,6 +18,7 @@ a{
 h1, h2{
   font-weight: normal;
   text-align: center;
+  padding: 15px;
 
   font-family:
     'Quicksand',
@@ -48,6 +49,12 @@ h1, h2{
   transition: opacity 1s;
   opacity: 0;
 
+}
+
+.saveButton{
+  margin: 0;
+  width: 100%;
+  text-align: right;
 }
 .el-button{
   margin: 15px 0 ;

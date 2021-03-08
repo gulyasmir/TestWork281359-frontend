@@ -4,6 +4,7 @@
     <h1>Изменить данные о пользователе </h1>
     <FormClients
       typePage="update"
+      :idClients="this.idClients"
     />
 
   </div>
@@ -16,6 +17,14 @@ export default {
   layout:'empty',
   components:{
     FormClients
+  },
+  data(){
+    return{
+      idClients:this.$route.params.id
+    }
+  },
+  mounted() {
+    console.log('this.$route.params.id = ', this.$route.params.id)
   },
   methods:{
     toBack(){

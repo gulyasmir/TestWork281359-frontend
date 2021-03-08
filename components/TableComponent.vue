@@ -6,7 +6,7 @@
     />
 
    <el-table
-    :data="this.tableData"
+    :data="tableData"
     style="width: 100%">
     <el-table-column
       prop="fio"
@@ -30,10 +30,14 @@
         <el-button @click="handleClickView(scope.row, tableData)"type="text" >
           <div class="el-icon-view"></div>
         </el-button>
-        <el-button  @click="handleClickEdit"  type="text" >
+        <el-button
+          v-if="isSetToken"
+          @click="handleClickEdit(scope.row.id, tableData)"  type="text" >
           <div class="el-icon-edit"></div>
         </el-button>
-        <el-button  @click="handleClickDelete" type="text">
+        <el-button
+          v-if="isSetToken"
+          @click="handleClickDelete(scope.row.id, tableData)" type="text">
           <div class="el-icon-delete"></div>
         </el-button>
       </template>
@@ -44,12 +48,19 @@
 
 <script>
 import ModalDialog from '@/components/ModalDialog'
+import { MessageBox } from 'element-ui'
 export default {
   name: "TableComponent",
   comments:{
     ModalDialog
   },
   props:{
+    isSetToken: {
+      type: Boolean,
+      default() {
+        return false;
+      }
+    },
     tableData: {
       type: Array,
       default() {
@@ -68,13 +79,24 @@ export default {
       this.dialogVisible = true
       this.infoClient = info
     },
-    handleClickEdit() {
+    handleClickEdit(id) {
+      console.log('id', id)
     //  this.$message.warning('Нет доступа! Необходимо авторизоваться.')
-      this.$router.push('/clients/update')
+      this.$router.push(`/clients/update/${id}`)
     },
-    handleClickDelete() {
+    handleClickDelete(id) {
       // this.$message.warning('Нет доступа! Необходимо авторизоваться.')
-      this.$router.push('/clients/delete')
+
+      let alertMessage =  'Вы уверены, что хотите удалить этого пользователя?'
+      MessageBox.alert(
+        alertMessage,
+        {
+          dangerouslyUseHTMLString: true,
+          confirmButtonText:'Да'})
+        .then(() => {
+        //  window.location.href = (`/clients/delete/${id}`)
+          this.$router.push(`/clients/delete/${id}`)
+        })
     }
   }
 }

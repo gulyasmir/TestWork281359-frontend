@@ -107,7 +107,7 @@ export default {
             if (result) {
               this.$message.success('Добро пожаловать в панель управления!')
 
-              this.$router.push('/index')
+              this.$router.push('/clients')
 
             } else {
               this.loading = false

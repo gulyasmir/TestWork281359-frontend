@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="formClients">
     <el-form
       :model="ruleForm"
       status-icon
@@ -9,6 +9,7 @@
 
       <el-form-item label="" prop="fio">
         <el-input
+          type="text"
           v-model="ruleForm.fio"
           placeholder="Введите ФИО"
         ></el-input>
@@ -18,7 +19,7 @@
         label=""
         prop="email">
         <el-input
-          type="password"
+          type="email"
           v-model="ruleForm.email"
           autocomplete="off"
           placeholder="Введите email"
@@ -30,7 +31,7 @@
         label=""
         prop="phone">
         <el-input
-          type="password"
+          type="phone"
           v-model="ruleForm.phone"
           autocomplete="off"
           placeholder="Введите телефон"
@@ -38,11 +39,13 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button
-          type="primary"
-          @click="submitForm('ruleForm')"
-          :loading="loading"
-        >Войти</el-button>
+        <div class="saveButton">
+          <el-button
+            type="primary"
+            @click="submitForm('ruleForm')"
+            :loading="loading"
+          >Сохранить</el-button>
+        </div>
       </el-form-item>
 
     </el-form>
@@ -53,6 +56,10 @@
 export default {
   name: "FormClients",
   props:{
+    idClients:{
+      type:Number,
+      default: 0
+    },
     typePage:{
       type:String,
       default:'create'
@@ -110,18 +117,25 @@ export default {
         if (valid) {
           this.loading = true
           try {
-            const formData = {
-              fio: this.ruleForm.fio,
-              email: this.ruleForm.email,
-              phone: this.ruleForm.phone,
-            }
-            console.log('formData', formData)
-
             let result
+            let formData
             if (this.typePage==='create') {
-              result =  await this.$store.dispatch('updateClient/update', formData)
-            } else {
+               formData = {
+                fio: this.ruleForm.fio,
+                email: this.ruleForm.email,
+                phone: this.ruleForm.phone
+              }
+              console.log('formData', formData)
               result =  await this.$store.dispatch('saveClient/create', formData)
+            } else {
+               formData = {
+                fio: this.ruleForm.fio,
+                email: this.ruleForm.email,
+                phone: this.ruleForm.phone,
+                id:this.idClients
+              }
+              console.log('formData', formData)
+              result =  await this.$store.dispatch('updateClient/update', formData)
             }
 
 
@@ -156,5 +170,8 @@ export default {
 </script>
 
 <style scoped>
-
+.formClients{
+  width: 50%;
+  margin: 0 auto;
+}
 </style>
