@@ -128,6 +128,7 @@ export default {
               }
               console.log('formData', formData)
               result =  await this.$store.dispatch('saveClient/create', formData)
+
             } else {
                formData = {
                 fio: this.ruleForm.fio,
@@ -137,23 +138,21 @@ export default {
               }
               console.log('formData', formData)
               result =  await this.$store.dispatch('updateClient/update', formData)
+
             }
 
 
             console.log('result', result)
-
-            if (result) {
-              this.$message.success('Добро пожаловать в панель управления!')
-              this.$router.push('/clients')
-
-            } else {
+            if (result.error=== true){
               this.loading = false
-              this.$message.warning('Нет доступа! Проверьте правильность логина и  пароля')
+              this.$message.warning('Нет доступа! Вам нужно авторизоваться.')
             }
-
+            else {
+              this.$message.success('Добро пожаловать в панель управления!')
+            }
+            this.$router.push('/clients')
 
           } catch (e) {
-
             this.loading = false
           }
 

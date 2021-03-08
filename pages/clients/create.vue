@@ -14,6 +14,7 @@ import FormClients from '@/components/FormClients'
 export default {
 name: "create",
   layout:'empty',
+  middleware:['ifAuth'],
   components:{
     FormClients
   },

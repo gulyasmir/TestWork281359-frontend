@@ -51,6 +51,7 @@
 
 export default {
   name: "login",
+  layout:'empty',
   data() {
     var checkLogin = (rule, value, callback) => {
       if (!value) {
@@ -88,7 +89,20 @@ export default {
     };
   },
 
+  mounted() {
+    const {message} = this.$route.query
 
+    switch (message){
+
+      case 'logout':
+         this.$message.success('Вы успешно вышли из системы')
+        break
+
+      case 'login':
+        this.$message.warning('Нет доступа! Вам нужно авторизоваться.')
+        break
+    }
+  },
   methods: {
     submitForm: function () {
       this.$refs.ruleForm.validate(async valid => {

@@ -14,6 +14,7 @@ import FormClients from '@/components/FormClients'
 export default {
   name: "delete",
   layout:'empty',
+  middleware:['ifAuth'],
   components:{
     FormClients
   },
@@ -36,7 +37,7 @@ export default {
       if (result.success === true){
         this.$message.success('Пользователь успешно удален!')
       } else {
-        this.$message.warning('Что то пошло не так')
+        this.$message.warning('Нет доступа! Вам нужно авторизоваться.')
       }
        this.$router.push('/clients')
      } catch (e) {
