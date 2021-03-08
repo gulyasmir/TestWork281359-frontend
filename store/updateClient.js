@@ -1,12 +1,12 @@
 export const actions = {
   async update({commit}, payload){
     try {
-      const url=`https://directory.gulyasmir.ru/public/api/client/${payload.id}?fio=${payload.fio}&email=${payload.email}&phone=${payload.phone}}`
+      const url=`https://directory.gulyasmir.ru/public/api/client/${payload.id}?fio=${payload.fio}&email=${payload.email}&phone=${payload.phone}`
       const resultdata = await this.$axios.put(url)
-      console.log('getClients result', resultdata)
-      return resultdata
+      console.log('update result', resultdata.data)
+      return resultdata.data
     } catch(e){
-      console.log('getClients error')
+      console.log('update error')
       throw  e
     }
   }

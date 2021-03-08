@@ -33,11 +33,12 @@ export default {
    async  delete(){
      try {
      let result =  await this.$store.dispatch('deleteClient/delete', {id:this.idClients})
-      if (result === 'success'){
-        this.$router.push('/clients')
+      if (result.success === true){
+        this.$message.success('Пользователь успешно удален!')
       } else {
         this.$message.warning('Что то пошло не так')
       }
+       this.$router.push('/clients')
      } catch (e) {
         this.loading = false
         this.$message.warning('Что то пошло не так')

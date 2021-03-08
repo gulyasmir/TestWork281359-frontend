@@ -57,8 +57,8 @@ export default {
   name: "FormClients",
   props:{
     idClients:{
-      type:Number,
-      default: 0
+      type:String,
+      default: ''
     },
     typePage:{
       type:String,
@@ -113,6 +113,7 @@ export default {
   },
   methods: {
     submitForm: function () {
+    //  console.log('this.ruleForm.phone', this.ruleForm.phone)
       this.$refs.ruleForm.validate(async valid => {
         if (valid) {
           this.loading = true
