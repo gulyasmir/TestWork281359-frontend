@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # directoryfront
 
 ## Build Setup
@@ -18,3 +19,8 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+=======
+# directoryFront
+
+Эта часть проекта находится в стадии разработки.
+>>>>>>> origin/master
