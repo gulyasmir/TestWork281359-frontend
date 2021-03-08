@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-   <h1 class="title">Тестовое задание </h1>
+   <h1 class="title">Справочник пользователей</h1>
   </div>
 </template>
 
