@@ -3,7 +3,6 @@
     <el-dialog
       title="Информация о пользователе"
       :visible.sync="dialogVisible"
-      width="30%"
       :before-close="handleClose">
       <p class="title"> <span class="el-icon-user"></span> {{infoClient.fio}} </p>
       <p><span class="el-icon-message"></span>  {{infoClient.email}}</p>

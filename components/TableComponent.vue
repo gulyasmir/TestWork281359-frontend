@@ -27,7 +27,7 @@
         <el-table-column
           fixed="right"
           label=" "
-          width="160">
+        >
           <template slot-scope="scope">
             <el-button @click="handleClickView(scope.row, tableData)"type="text" >
               <div class="icon el-icon-view"></div>
