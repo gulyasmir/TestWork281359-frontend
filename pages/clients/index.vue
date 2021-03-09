@@ -12,6 +12,7 @@
     <TableComponent
       :tableData="this.clientsList.data"
       :isSetToken="this.isSetToken"
+      :isLoading="this.isLoading"
     />
 
   </div>
@@ -27,10 +28,11 @@ export default {
   },
   data(){
     return {
-      clientsList: []
+      clientsList: [],
+      isLoading: true
     }
   },
-  mounted(){
+  created(){
     this.getClientslist()
   },
   computed: {
@@ -42,7 +44,7 @@ export default {
     async getClientslist() {
         this.clientsList = []
         this.clientsList =  await this.$store.dispatch('getClients/getListClients' )
-
+        this.isLoading = false
       return this.clientsList
     },
     handleClickCreate() {

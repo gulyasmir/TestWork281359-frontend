@@ -11,7 +11,7 @@
         <el-input
           type="text"
           v-model="ruleForm.fio"
-          placeholder="Введите ФИО"
+          :placeholder="this.ClientInfo.fio "
         ></el-input>
       </el-form-item>
       <el-form-item
@@ -22,24 +22,28 @@
           type="email"
           v-model="ruleForm.email"
           autocomplete="off"
-          placeholder="Введите email"
+          :placeholder="this.ClientInfo.email"
         ></el-input>
       </el-form-item>
 
       <el-form-item
         class="smallMarginBottom"
-        label=""
+        label=" "
         prop="phone">
         <el-input
           type="phone"
           v-model="ruleForm.phone"
           autocomplete="off"
-          placeholder="Введите телефон"
+          :placeholder="this.ClientInfo.email "
         ></el-input>
       </el-form-item>
 
       <el-form-item>
         <div class="saveButton">
+          <el-button
+            type="success"
+            @click="toBack"
+          >Назад</el-button>
           <el-button
             type="primary"
             @click="submitForm('ruleForm')"
@@ -54,15 +58,11 @@
 
 <script>
 export default {
-  name: "FormClients",
+  name: "FormClientUpdate",
   props:{
     idClients:{
       type:String,
       default: ''
-    },
-    typePage:{
-      type:String,
-      default:'create'
     }
   },
   data() {
@@ -91,6 +91,7 @@ export default {
     };
 
     return {
+      ClientInfo:{},
       loading:false,
       ruleForm: {
         fio: '',
@@ -111,38 +112,32 @@ export default {
       }
     };
   },
+  mounted() {
+     this.getClient(this.idClients)
+  },
   methods: {
+    toBack(){
+      this.$router.push('/clients')
+    },
+    async getClient(id) {
+      this.ClientInfo =  await this.$store.dispatch('getClient/getClientInfo',{'id': id })
+      return this.ClientInfo
+    },
     submitForm: function () {
     //  console.log('this.ruleForm.phone', this.ruleForm.phone)
       this.$refs.ruleForm.validate(async valid => {
         if (valid) {
           this.loading = true
           try {
-            let result
-            let formData
-            if (this.typePage==='create') {
-               formData = {
-                fio: this.ruleForm.fio,
-                email: this.ruleForm.email,
-                phone: this.ruleForm.phone
-              }
-              console.log('formData', formData)
-              result =  await this.$store.dispatch('saveClient/create', formData)
-
-            } else {
-               formData = {
+            let formData = {
                 fio: this.ruleForm.fio,
                 email: this.ruleForm.email,
                 phone: this.ruleForm.phone,
                 id:this.idClients
               }
               console.log('formData', formData)
-              result =  await this.$store.dispatch('updateClient/update', formData)
+            let  result =  await this.$store.dispatch('updateClient/update', formData)
 
-            }
-
-
-            console.log('result', result)
             if (result.error=== true){
               this.loading = false
               this.$message.warning('Нет доступа! Вам нужно авторизоваться.')

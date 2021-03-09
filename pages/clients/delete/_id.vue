@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import FormClients from '@/components/FormClients'
+import FormClients from '@/components/FormClientUpdate'
 export default {
   name: "delete",
   layout:'empty',
@@ -54,13 +54,5 @@ export default {
 h1{
   padding:25px 0;
 }
-.loading{
-  text-align: center;
-  width: 100%;
-  padding: 30px;
-}
-.el-icon-loading{
-  font-size: 45px;
-  margin: 0 auto;
-}
+
 </style>

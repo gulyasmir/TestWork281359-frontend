@@ -2,8 +2,7 @@
   <div class="pade-update">
     <div class="icon el-icon-back"  @click="toBack"></div>
     <h1>Изменить данные о пользователе </h1>
-    <FormClients
-      typePage="update"
+    <FormClientUpdate
       :idClients="this.idClients"
     />
 
@@ -11,13 +10,13 @@
 </template>
 
 <script>
-import FormClients from '@/components/FormClients'
+import FormClientUpdate from '@/components/FormClientUpdate'
 export default {
   name: "update",
   layout:'empty',
   middleware:['ifAuth'],
   components:{
-    FormClients
+    FormClientUpdate
   },
   data(){
     return{

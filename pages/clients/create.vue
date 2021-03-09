@@ -2,21 +2,19 @@
   <div>
     <div class="icon el-icon-back"  @click="toBack"></div>
       <h1>Добавление новых пользователей</h1>
-      <FormClients
-        typePage="create"
-      />
+      <FormClientCreate/>
 
   </div>
 </template>
 
 <script>
-import FormClients from '@/components/FormClients'
+import FormClientCreate from '@/components/FormClientCreate'
 export default {
 name: "create",
   layout:'empty',
   middleware:['ifAuth'],
   components:{
-    FormClients
+    FormClientCreate
   },
   methods:{
     toBack(){

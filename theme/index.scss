@@ -59,8 +59,19 @@ h1, h2{
 .el-button{
   margin: 15px 0 ;
 }
+.formClients .el-button{
+  min-width: 120px;
+}
 .icon{
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  padding: 10px;
+}
+.loading{
+  text-align: center;
+  width: 100%;
+  padding: 30px;
+}
+.el-icon-loading{
+  font-size: 45px;
+  margin: 0 auto;
 }
