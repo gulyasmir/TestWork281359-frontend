@@ -7,7 +7,7 @@
       </el-menu-item>
 
       <el-menu-item index="2">
-        <a href="https://github.com/gulyasmir" target="_blank">Исходники тут</a>
+        <a href="https://github.com/gulyasmir/directoryFront" target="_blank">Исходники тут</a>
       </el-menu-item>
 
       <el-menu-item
