@@ -3,6 +3,13 @@
 
 This project deploy in heroku  https://directoryfront.herokuapp.com/
 
+Для авторизации
+
+Логин gulyasmir@yandex.ru
+
+Пароль z4Q-EHN-8Yj-GEi
+
+
 
 For Build Setup
 
@@ -20,8 +27,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 
-Для авторизации
-
-Логин gulyasmir@yandex.ru
-
-Пароль z4Q-EHN-8Yj-GEi
