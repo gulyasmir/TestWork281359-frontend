@@ -1,6 +1,4 @@
 
-# directoryFront
-
 This project deploy in heroku  https://directoryfront.herokuapp.com/
 
 Для авторизации
