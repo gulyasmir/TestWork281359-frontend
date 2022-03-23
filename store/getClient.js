@@ -1,7 +1,7 @@
 export const actions = {
   async getClientInfo({commit}, payload){
     try {
-      const url=`https://directory.gulyasmir.ru/api/client/${payload.id}`
+      const url=`http://directory.gulyasmir.site/api/client/${payload.id}`
 
       let resultdata = await this.$axios.get(url)
 
